@@ -13,7 +13,7 @@ import java.util.List;
 public class GetAllLanguagesResponse {
     private int id;
     private String name;
-     private List<GetAllSubTech> subTechs;
+    private List<GetAllSubTech> subTechName;
 
 
 }

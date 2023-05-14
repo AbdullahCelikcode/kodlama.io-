@@ -31,17 +31,16 @@ public class LanguageManager implements LanguageService {
 
     public List<GetAllLanguagesResponse> getAll() {
 
-        List<Language> programmingLanguages = languageRepository.findAll();
-        var programmingLanguageList= programmingLanguages.stream().map(Language -> {
-            GetAllLanguagesResponse getAllLanguagesResponse = modelMapperService.forResponse()
-                .map(Language, GetAllLanguagesResponse.class);
+        List<Language> languages = languageRepository.findAll();
+        List<GetAllLanguagesResponse> languagesResponses =languages.stream().map(language -> this.modelMapperService.forResponse()
+                .map(language,GetAllLanguagesResponse.class)).collect(Collectors.toList());
+        return languagesResponses;
 
-            List<GetAllSubTech> getAllSubTeches = Language.getSubTeches().stream().map(SubTech -> modelMapperService.forResponse()
+         /*   List<GetAllSubTech> getAllSubTeches = Language.getSubTeches().stream().map(SubTech -> modelMapperService.forResponse()
                     .map(SubTech, GetAllSubTech.class)).collect(Collectors.toList());
-            getAllLanguagesResponse.setSubTechs(getAllSubTeches);
+            getAllLanguagesResponse.setSubTechName(getAllSubTeches);
 
-                    return getAllLanguagesResponse;}).collect(Collectors.toList());
-        return programmingLanguageList;
+                    return getAllLanguagesResponse;}).collect(Collectors.toList()); */
 
     }
 

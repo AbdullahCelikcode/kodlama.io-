@@ -25,7 +25,7 @@ public class SubTech {
     private String name;
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "languageid")
+    @JoinColumn(name = "language_id")
     private Language language;
 
 }
